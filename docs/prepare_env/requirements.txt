@@ -1,75 +1,232 @@
-Cython
-numpy # ==1.23.0
-numba==0.56.4
-pandas
-transformers
-scipy==1.11.1 # required by cal_fid. https://github.com/mseitzer/pytorch-fid/issues/103
-scikit-learn
-scikit-image
-# tensorflow # you can flexible it, this is gpu version
-tensorboard
-tensorboardX
-python_speech_features
-resampy
-opencv_python
-face_alignment
-matplotlib
-configargparse
-librosa==0.9.2
-praat-parselmouth # ==0.4.3
-trimesh
-kornia==0.5.0
-PyMCubes
-lpips
-setuptools # ==59.5.0
-ffmpeg-python
-moviepy
-dearpygui
-ninja
-pyaudio # for extract esperanto
-mediapipe
-protobuf
-decord
-soundfile
-pillow
-# torch # it's better to install torch with conda 
-av
-timm
-pretrainedmodels
-faiss-cpu # for fast nearest camera pose retriveal
-einops
-# mmcv # use mim install is faster
-
-# conditional flow matching
-beartype
-torchode
-torchdiffeq
-
-# tts
-cython
-textgrid
-pyloudnorm
-websocket-client
-pyworld==0.2.1rc0
-pypinyin==0.42.0
-webrtcvad
-torchshow
-
-# cal spk sim
-s3prl
-fire
-
-# cal LMD
-dlib
-
-# debug
-ipykernel
-
-# lama
-hydra-core
-pytorch_lightning
-setproctitle
-
-# Gradio GUI
-httpx==0.23.3
+absl-py==2.1.0
+addict==2.4.0
+aiofiles==23.2.1
+aiohttp==3.9.5
+aiosignal==1.3.1
+aliyun-python-sdk-core==2.15.1
+aliyun-python-sdk-kms==2.16.3
+altair==5.3.0
+annotated-types==0.7.0
+antlr4-python3-runtime==4.9.3
+anyio==4.4.0
+asttokens==2.4.1
+async-timeout==4.0.3
+attrs==23.2.0
+audioread==3.0.1
+av==12.2.0
+beartype==0.18.5
+Brotli @ file:///home/conda/feedstock_root/build_artifacts/brotli-split_1695989787169/work
+certifi @ file:///home/conda/feedstock_root/build_artifacts/certifi_1720457958366/work/certifi
+cffi @ file:///home/conda/feedstock_root/build_artifacts/cffi_1696001742886/work
+charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1698833585322/work
+click==8.1.7
+cmake==3.25.2
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1666700638685/work
+comm==0.2.2
+ConfigArgParse==1.7
+contourpy==1.2.1
+crcmod==1.7
+cryptography==42.0.8
+cycler==0.12.1
+Cython==3.0.10
+dataclasses @ file:///home/conda/feedstock_root/build_artifacts/dataclasses_1628958434797/work
+dearpygui==1.11.1
+debugpy==1.8.2
+decorator==4.4.2
+decord==0.6.0
+dlib==19.24.2
+dnspython==2.6.1
+einops==0.8.0
+email_validator==2.2.0
+exceptiongroup==1.2.2
+executing==2.0.1
+face-alignment==1.4.1
+faiss-cpu==1.8.0.post1
+fastapi==0.111.1
+fastapi-cli==0.0.4
+ffmpeg-python==0.2.0
+ffmpy==0.3.2
+filelock==3.14.0
+fire==0.6.0
+flatbuffers==24.3.25
+fonttools==4.53.1
+frozenlist==1.4.1
+fsspec==2024.6.1
+future==1.0.0
+fvcore @ file:///home/conda/feedstock_root/build_artifacts/fvcore_1671623667463/work
+gmpy2 @ file:///home/conda/feedstock_root/build_artifacts/gmpy2_1715527292503/work
 gradio==4.16.0
+gradio_client==0.8.1
+grpcio==1.65.1
+h11==0.14.0
+h2 @ file:///home/conda/feedstock_root/build_artifacts/h2_1634280454336/work
+hpack==4.0.0
+httpcore==0.16.3
+httptools==0.6.1
+httpx==0.23.3
+huggingface-hub==0.24.0
+hydra-core==1.3.2
+hyperframe @ file:///home/conda/feedstock_root/build_artifacts/hyperframe_1619110129307/work
+idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1713279365350/work
+imageio==2.34.2
+imageio-ffmpeg==0.5.1
+importlib_metadata==8.0.0
+importlib_resources==6.4.0
+iopath @ file:///home/conda/feedstock_root/build_artifacts/iopath_1636568816351/work
+ipykernel==6.29.5
+ipython==8.18.1
+jax==0.4.30
+jaxlib==0.4.30
+jedi==0.19.1
+Jinja2 @ file:///home/conda/feedstock_root/build_artifacts/jinja2_1715127149914/work
+jmespath==0.10.0
+joblib==1.4.2
+jsonschema==4.23.0
+jsonschema-specifications==2023.12.1
+jupyter_client==8.6.2
+jupyter_core==5.7.2
+kiwisolver==1.4.5
+kornia==0.5.0
+lazy_loader==0.4
+librosa==0.9.2
+lightning-utilities==0.11.5
+llvmlite==0.39.1
+lpips==0.1.4
+Markdown==3.6
+markdown-it-py==3.0.0
+MarkupSafe @ file:///home/conda/feedstock_root/build_artifacts/markupsafe_1706899945820/work
+matplotlib==3.9.1
+matplotlib-inline==0.1.7
+mdurl==0.1.2
+mediapipe==0.10.14
+ml-dtypes==0.4.0
+mmcv==2.1.0
+mmengine==0.10.4
+model-index==0.1.11
+moviepy==1.0.3
+mpmath @ file:///home/conda/feedstock_root/build_artifacts/mpmath_1678228039184/work
+multidict==6.0.5
+munch==4.0.0
+nest-asyncio==1.6.0
+networkx @ file:///home/conda/feedstock_root/build_artifacts/networkx_1698504735452/work
+ninja==1.11.1.1
+numba==0.56.4
+numpy==1.23.0
+olefile @ file:///home/conda/feedstock_root/build_artifacts/olefile_1701735466804/work
+omegaconf==2.3.0
+opencv-contrib-python==4.10.0.84
+opencv-python==4.10.0.84
+opendatalab==0.0.10
+openmim==0.3.9
+openxlab==0.1.1
+opt-einsum==3.3.0
+ordered-set==4.1.0
+orjson==3.10.6
+oss2==2.17.0
+packaging==24.1
+pandas==2.2.2
+parso==0.8.4
+pexpect==4.9.0
+Pillow==9.1.0
+platformdirs==4.2.2
+pooch==1.8.2
+portalocker @ file:///home/conda/feedstock_root/build_artifacts/portalocker_1720928539791/work
+praat-parselmouth==0.4.3
+pretrainedmodels==0.7.4
+proglog==0.1.10
+prompt_toolkit==3.0.47
+protobuf==3.20.3
+psutil==6.0.0
+ptyprocess==0.7.0
+pure-eval==0.2.2
+PyAudio @ file:///home/conda/feedstock_root/build_artifacts/pyaudio_1699365171726/work
+pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1711811537435/work
+pycryptodome==3.20.0
+pydantic==2.8.2
+pydantic-settings==2.4.0
+pydantic_core==2.20.1
+pydub==0.25.1
+Pygments==2.18.0
+pyloudnorm==0.1.1
+PyMCubes==0.1.6
+pyparsing==3.1.2
+pypinyin==0.42.0
+PySocks @ file:///home/conda/feedstock_root/build_artifacts/pysocks_1661604839144/work
+python-dateutil==2.9.0.post0
+python-dotenv==1.0.1
+python-multipart==0.0.9
+python-speech-features==0.6
+pytorch-lightning==2.3.3
+pytorch3d==0.7.7
+pytz==2023.4
+pyworld==0.2.1rc0
+PyYAML @ file:///home/conda/feedstock_root/build_artifacts/pyyaml_1695373447169/work
+pyzmq==26.0.3
+referencing==0.35.1
+regex==2024.5.15
+requests==2.28.2
+resampy==0.4.3
+rfc3986==1.5.0
+rich==13.4.2
+rpds-py==0.19.0
+ruff==0.5.3
+s3prl==0.4.15
+safetensors==0.4.3
+scikit-image==0.24.0
+scikit-learn==1.5.1
+scipy==1.11.1
+semantic-version==2.10.0
+setproctitle==1.3.3
+shellingham==1.5.4
+six==1.16.0
+sniffio==1.3.1
+sounddevice==0.4.7
+soundfile==0.12.1
+stack-data==0.6.3
+starlette==0.37.2
+sympy @ file:///home/conda/feedstock_root/build_artifacts/sympy_1721004824012/work
+tabulate @ file:///home/conda/feedstock_root/build_artifacts/tabulate_1665138452165/work
+tensorboard==2.17.0
+tensorboard-data-server==0.7.2
+tensorboardX==2.6.2.2
+termcolor @ file:///home/conda/feedstock_root/build_artifacts/termcolor_1704357939450/work
+TextGrid==1.6.1
+threadpoolctl==3.5.0
+tifffile==2024.7.2
+timm==1.0.7
+tokenizers==0.19.1
+tomli==2.0.1
+tomlkit==0.12.0
+toolz==0.12.1
+torch==2.0.1
+torchaudio==2.0.2
+torchdiffeq==0.2.4
+torchmetrics==1.4.0.post0
+torchode==0.2.0
+torchshow==0.5.1
+torchtyping==0.1.4
+torchvision==0.15.2
+tornado==6.4.1
+tqdm==4.65.2
+traitlets==5.14.3
+transformers==4.42.4
+trimesh==4.4.3
+triton==2.0.0
+typeguard==4.3.0
+typer==0.12.3
+typing_extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1717802530399/work
+tzdata==2024.1
+urllib3==1.26.19
+uvicorn==0.30.3
+uvloop==0.20.0
+watchfiles==0.23.0
+wcwidth==0.2.13
+webrtcvad==2.0.10
+websocket-client==1.8.0
+websockets==11.0.3
+Werkzeug==3.0.3
+yacs @ file:///home/conda/feedstock_root/build_artifacts/yacs_1645705974477/work
+yapf==0.40.2
+yarl==1.9.4
+zipp==3.19.2
+zstandard==0.23.0
