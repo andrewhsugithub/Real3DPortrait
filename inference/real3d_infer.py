@@ -568,7 +568,7 @@ class GeneFace2Infer:
         assert audio_name.endswith(supported_types), f"Now we only support {','.join(supported_types)} as audio source!"
         wav16k_name = audio_name[:-4] + '_16k.wav'
         self.wav16k_name = wav16k_name
-        extract_wav_cmd = f"ffmpeg -i {audio_name} -f wav -ar 16000 -v quiet -y {wav16k_name} -y"
+        extract_wav_cmd = f"ffmpeg -i \'{audio_name}\' -f wav -ar 16000 -v quiet -y \'{wav16k_name}\' -y"
         os.system(extract_wav_cmd)
         print(f"Extracted wav file (16khz) from {audio_name} to {wav16k_name}.")
 
