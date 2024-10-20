@@ -24,7 +24,7 @@ class Real3DRequest(BaseModel):
     mouth_amp: Optional[float] = Field(default=0.45, description='scale of predicted mouth, enabled in audio-driven')
     head_torso_threshold: Optional[float] = Field(default=None, description="0.1~1.0, turn up this value if the hair is translucent")
     out_name: Optional[str] = Field(default='', description='Output filename')
-    out_mode: Optional[OutModeEnum] = Field(default=OutModeEnum.concat_debug, description='final: only output talking head video; concat_debug: talking head with internel features')
+    out_mode: Optional[OutModeEnum] = Field(default=OutModeEnum.final, description='final: only output talking head video; concat_debug: talking head with internel features')
     map_to_init_pose: bool = Field(default=True, description='Whether to map the pose of the first frame to source image')
     seed: Optional[int] = Field(default=None, description='random seed, default None to use time.time()')
     min_face_area_percent: Optional[float] = Field(default=0.2, description='scale of predicted mouth, enabled in audio-driven')

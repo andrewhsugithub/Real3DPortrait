@@ -1,15 +1,39 @@
-﻿from fastapi import APIRouter, HTTPException
+﻿from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import FileResponse
 from inference.real3d_infer import GeneFace2Infer
 
 from server.dto import Real3DRequest
 
-import os
+import datetime
+
+import jwt
+from cryptography.hazmat.backends import default_backend
+from cryptography.hazmat.primitives import serialization
+
+# Function to read public key from a PEM file and return it as a byte string
+def load_public_key_pem(pem_file_path):
+    # Read the PEM file
+    with open(pem_file_path, 'rb') as pem_file:
+        pem_data = pem_file.read()
+    
+    # Load the public key
+    public_key = serialization.load_pem_public_key(pem_data, backend=default_backend())
+
+    # Return the public key in PEM format as a byte string
+    return public_key
+
+# Example usage
+pem_file_path = 'keys/jwtRSA256-public.pem'  # Specify the path to your PEM file
+public_key = load_public_key_pem(pem_file_path)
 
 router = APIRouter()
 
 @router.post("/real3d/")
-async def real3d(req: Real3DRequest) -> FileResponse:
+async def real3d(req: Real3DRequest, request: Request) -> FileResponse:
+    access_token = request.headers['Authorization'].split(' ')[1]
+    payload = jwt.decode(access_token, public_key, algorithms=["RS256"])
+    user_id = payload['sub']
+    
     args = req.copy(deep=True)
     inp = {
         'a2m_ckpt': args.a2m_ckpt,
@@ -30,11 +54,13 @@ async def real3d(req: Real3DRequest) -> FileResponse:
         'min_face_area_percent': args.min_face_area_percent,
         'low_memory_usage': args.low_memory_usage,
         }
+    
+    date = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+    inp['out_name'] = f"/mnt/Nami/users/Jason0411202/buckets/{user_id}/Real3D/{date}.mp4"
 
     GeneFace2Infer.example_run(inp)
     
-    # vid_path = osp.join(args.output_dir, f'{basename(args.source)}--{basename(args.driving)}.mp4')
-    vid_path = 'infer_out/tmp/' + os.path.basename(inp['src_image_name'])[:-4] + '_' + os.path.basename(inp['drv_pose_name'])[:-4] + '.mp4' if inp['out_name'] == '' else inp['out_name']
+    vid_path = inp['out_name']
         
     response = FileResponse(vid_path)
 
