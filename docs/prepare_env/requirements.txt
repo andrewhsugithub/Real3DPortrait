@@ -1,7 +1,7 @@
 absl-py==2.1.0
 addict==2.4.0
 aiofiles==23.2.1
-aiohttp==3.9.5
+aiohttp==3.10.2
 aiosignal==1.3.1
 aliyun-python-sdk-core==2.15.1
 aliyun-python-sdk-kms==2.16.3
@@ -26,7 +26,7 @@ comm==0.2.2
 ConfigArgParse==1.7
 contourpy==1.2.1
 crcmod==1.7
-cryptography==42.0.8
+cryptography==43.0.1
 cycler==0.12.1
 Cython==3.0.10
 dataclasses @ file:///home/conda/feedstock_root/build_artifacts/dataclasses_1628958434797/work
@@ -55,7 +55,7 @@ fsspec==2024.6.1
 future==1.0.0
 fvcore @ file:///home/conda/feedstock_root/build_artifacts/fvcore_1671623667463/work
 gmpy2 @ file:///home/conda/feedstock_root/build_artifacts/gmpy2_1715527292503/work
-gradio==4.16.0
+gradio==5.0.0
 gradio_client==0.8.1
 grpcio==1.65.1
 h11==0.14.0
@@ -127,7 +127,7 @@ packaging==24.1
 pandas==2.2.2
 parso==0.8.4
 pexpect==4.9.0
-Pillow==9.1.0
+Pillow==10.3.0
 platformdirs==4.2.2
 pooch==1.8.2
 portalocker @ file:///home/conda/feedstock_root/build_artifacts/portalocker_1720928539791/work
@@ -165,7 +165,7 @@ PyYAML @ file:///home/conda/feedstock_root/build_artifacts/pyyaml_1695373447169/
 pyzmq==26.0.3
 referencing==0.35.1
 regex==2024.5.15
-requests==2.28.2
+requests==2.32.2
 resampy==0.4.3
 rfc3986==1.5.0
 rich==13.4.2
@@ -184,7 +184,7 @@ sniffio==1.3.1
 sounddevice==0.4.7
 soundfile==0.12.1
 stack-data==0.6.3
-starlette==0.37.2
+starlette==0.40.0
 sympy @ file:///home/conda/feedstock_root/build_artifacts/sympy_1721004824012/work
 tabulate @ file:///home/conda/feedstock_root/build_artifacts/tabulate_1665138452165/work
 tensorboard==2.17.0
@@ -199,7 +199,7 @@ tokenizers==0.19.1
 tomli==2.0.1
 tomlkit==0.12.0
 toolz==0.12.1
-torch==2.0.1
+torch==2.2.0
 torchaudio==2.0.2
 torchdiffeq==0.2.4
 torchmetrics==1.4.0.post0
@@ -208,7 +208,7 @@ torchshow==0.5.1
 torchtyping==0.1.4
 torchvision==0.15.2
 tornado==6.4.1
-tqdm==4.65.2
+tqdm==4.66.3
 traitlets==5.14.3
 transformers==4.42.4
 trimesh==4.4.3
@@ -225,7 +225,7 @@ wcwidth==0.2.13
 webrtcvad==2.0.10
 websocket-client==1.8.0
 websockets==11.0.3
-Werkzeug==3.0.3
+Werkzeug==3.0.6
 yacs @ file:///home/conda/feedstock_root/build_artifacts/yacs_1645705974477/work
 yapf==0.40.2
 yarl==1.9.4
