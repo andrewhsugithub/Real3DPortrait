@@ -11,6 +11,8 @@ class OutModeEnum(str, Enum):
     concat_debug = "concat_debug"
 
 class Real3DRequest(BaseModel):
+    emotion: str = Field(default='', description='Emotion to be expressed')
+    user_id: str = Field(default='', description='User ID')
     a2m_ckpt: Optional[str] = Field(default='checkpoints/240210_real3dportrait_orig/audio2secc_vae', description='Path to A2M checkpoint')
     head_ckpt: Optional[str] = Field(default='', description='Path to head checkpoint')
     torso_ckpt: Optional[str] = Field(default='checkpoints/240210_real3dportrait_orig/secc2plane_torso_orig', description='Path to torso checkpoint')

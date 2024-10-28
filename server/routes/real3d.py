@@ -1,5 +1,5 @@
 ﻿from fastapi import APIRouter, HTTPException, Request
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 from inference.real3d_infer import GeneFace2Infer
 
 from server.dto import Real3DRequest
@@ -30,15 +30,27 @@ router = APIRouter()
 
 @router.post("/real3d/")
 async def real3d(req: Real3DRequest, request: Request) -> FileResponse:
-    access_token = request.headers['Authorization'].split(' ')[1]
-    payload = jwt.decode(access_token, public_key, algorithms=["RS256"])
-    user_id = payload['sub']
+    try:
+        access_token = request.headers['Authorization'].split(' ')[1]
+        payload = jwt.decode(access_token, public_key, algorithms=["RS256"])
+    except jwt.exceptions.ExpiredSignatureError:
+        return JSONResponse(content={"message": "Token has expired"}, status_code=401)
+        
+    user_id = req.user_id
+    emotion = req.emotion
+    filename = req.drv_aud.split('/')[-1][:-4]
+    
+    print("user_id: ", user_id)
+    print("emotion: ", emotion)
+    print("filename: ", filename)
     
     args = req.copy(deep=True)
+    #! should not be hard coded here
     inp = {
         'a2m_ckpt': args.a2m_ckpt,
         'head_ckpt': args.head_ckpt,
         'torso_ckpt': args.torso_ckpt,
+        # 'src_image_name': f"/mnt/Nami/users/Jason0411202/buckets/{user_id}/image/{emotion}/{emotion}.png",
         'src_image_name': args.src_img,
         'bg_image_name': args.bg_img,
         'drv_audio_name': args.drv_aud,
@@ -46,7 +58,7 @@ async def real3d(req: Real3DRequest, request: Request) -> FileResponse:
         'blink_mode': args.blink_mode,
         'temperature': args.temperature,
         'mouth_amp': args.mouth_amp,
-        'out_name': args.out_name,
+        'out_name': f"/mnt/Nami/users/Jason0411202/buckets/{user_id}/Real3D/{filename}.mp4",
         'out_mode': args.out_mode,
         'map_to_init_pose': args.map_to_init_pose,
         'head_torso_threshold': args.head_torso_threshold,
@@ -55,13 +67,13 @@ async def real3d(req: Real3DRequest, request: Request) -> FileResponse:
         'low_memory_usage': args.low_memory_usage,
         }
     
-    date = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
-    inp['out_name'] = f"/mnt/Nami/users/Jason0411202/buckets/{user_id}/Real3D/{date}.mp4"
+    # date = datetime.datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+    # inp['out_name'] = f"/mnt/Nami/users/Jason0411202/buckets/{user_id}/Real3D/{date}.mp4"
 
     GeneFace2Infer.example_run(inp)
     
     vid_path = inp['out_name']
         
-    response = FileResponse(vid_path)
+    print("Video saved at: ", vid_path)
 
-    return response
+    return vid_path
