@@ -40,6 +40,10 @@ async def real3d(req: Real3DRequest, request: Request) -> FileResponse:
     emotion = req.emotion
     filename = req.drv_aud.split('/')[-1][:-4]
     
+    print("user_id: ", user_id)
+    print("emotion: ", emotion)
+    print("filename: ", filename)
+    
     args = req.copy(deep=True)
     #! should not be hard coded here
     inp = {
@@ -55,7 +59,6 @@ async def real3d(req: Real3DRequest, request: Request) -> FileResponse:
         'temperature': args.temperature,
         'mouth_amp': args.mouth_amp,
         'out_name': f"/mnt/Nami/users/Jason0411202/buckets/{user_id}/Real3D/{filename}.mp4",
-        'out_name': args.out_name,
         'out_mode': args.out_mode,
         'map_to_init_pose': args.map_to_init_pose,
         'head_torso_threshold': args.head_torso_threshold,
@@ -71,6 +74,6 @@ async def real3d(req: Real3DRequest, request: Request) -> FileResponse:
     
     vid_path = inp['out_name']
         
-    response = FileResponse(vid_path)
+    print("Video saved at: ", vid_path)
 
     return vid_path
