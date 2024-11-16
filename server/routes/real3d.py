@@ -51,15 +51,17 @@ async def real3d(req: Real3DRequest, request: Request) -> FileResponse:
     # Create a temporary directory to store the cut video
     with tempfile.TemporaryDirectory() as tmp_dir:
         cut_video_path = os.path.join(tmp_dir, "cut_driving_video.mp4")
+        print(f"Temporary directory created at: {tmp_dir}, cut video path: {cut_video_path}")
 
         # Cut the driving pose video from segment_starting_time to segment_ending_time
         drv_pose_path = f"/mnt/Nami/users/Jason0411202/buckets/{user_id}/video/DrivingVideo.mp4"
         try:
             subprocess.run(
                 [
-                    "ffmpeg", "-i", drv_pose_path,
+                    "ffmpeg",
                     "-ss", str(segment_starting_time),
                     "-to", str(segment_ending_time),
+                    "-i", drv_pose_path,
                     "-c", "copy", cut_video_path
                 ],
                 check=True
@@ -81,7 +83,7 @@ async def real3d(req: Real3DRequest, request: Request) -> FileResponse:
             'bg_image_name': args.bg_img,
             'drv_audio_name': args.drv_aud,
             # 'drv_pose_name': args.drv_pose,
-            'drv_pose_name': f"/mnt/Nami/users/Jason0411202/buckets/{user_id}/video/DrivingVideo.mp4", #! should be the cut driving pose video
+            'drv_pose_name': cut_video_path,
             'blink_mode': args.blink_mode,
             'temperature': args.temperature,
             'mouth_amp': args.mouth_amp,
